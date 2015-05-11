@@ -4,8 +4,6 @@
 	"require": {
 	},
 	"require-dev": {
-		"bleicker/objectmanager": "1.1.*",
-		"bleicker/persistence": "1.0.*",
 		"phpunit/phpunit": "4.6.*"
 	},
 	"authors": [
