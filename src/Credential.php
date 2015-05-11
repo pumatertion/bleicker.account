@@ -44,7 +44,7 @@ class Credential {
 	 * @param AccountInterface $account
 	 * @return $this
 	 */
-	public function setAccount($account) {
+	public function setAccount(AccountInterface $account) {
 		$this->account = $account;
 		return $this;
 	}
