@@ -30,7 +30,7 @@ class Account implements AccountInterface {
 	/**
 	 * @param string $identity
 	 */
-	public function __construct($identity) {
+	public function __construct($identity = NULL) {
 		$this->identity = $identity;
 		$this->roles = new ArrayCollection();
 	}
@@ -47,6 +47,15 @@ class Account implements AccountInterface {
 	 */
 	public function getIdentity() {
 		return $this->identity;
+	}
+
+	/**
+	 * @param string $identity
+	 * @return $this
+	 */
+	public function setIdentity($identity = NULL) {
+		$this->identity = $identity;
+		return $this;
 	}
 
 	/**

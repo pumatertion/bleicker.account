@@ -8,6 +8,7 @@ Bleicker\Account\Account:
         strategy: AUTO
   fields:
     identity:
+      nullable: false
       type: string
       unique: true
   manyToMany:

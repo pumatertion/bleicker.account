@@ -17,6 +17,12 @@ interface AccountInterface {
 	public function getIdentity();
 
 	/**
+	 * @param string $identity
+	 * @return $this
+	 */
+	public function setIdentity($identity = NULL);
+
+	/**
 	 * @return Collection
 	 */
 	public function getRoles();
