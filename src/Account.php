@@ -10,9 +10,21 @@ namespace Bleicker\Account;
 class Account implements AccountInterface {
 
 	/**
+	 * @var integer
+	 */
+	protected $id;
+
+	/**
 	 * @var string
 	 */
 	protected $username;
+
+	/**
+	 * @return int
+	 */
+	public function getId() {
+		return $this->id;
+	}
 
 	/**
 	 * @param string $username
