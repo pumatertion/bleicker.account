@@ -7,6 +7,18 @@ Bleicker\Account\Account:
       generator:
         strategy: AUTO
   fields:
-    username:
+    identity:
       type: string
       unique: true
+  manyToMany:
+    roles:
+      cascade: ["all"]
+      targetEntity: Bleicker\Account\Role
+      joinTable:
+        name: bleicker_account_account_roles
+        joinColumns:
+          account_id:
+            referencedColumnName: id
+        inverseJoinColumns:
+          role_id:
+            referencedColumnName: id
