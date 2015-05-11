@@ -7,7 +7,7 @@ namespace Bleicker\Account;
  *
  * @package Bleicker\Account
  */
-class Credential {
+class Credential implements CredentialInterface {
 
 	/**
 	 * @var integer
@@ -22,15 +22,15 @@ class Credential {
 	/**
 	 * @var string
 	 */
-	protected $password;
+	protected $value;
 
 	/**
-	 * @param int $id
-	 * @return $this
+	 * @param string $value
+	 * @param AccountInterface $account
 	 */
-	public function setId($id) {
-		$this->id = $id;
-		return $this;
+	public function __construct($value = NULL, AccountInterface $account = NULL) {
+		$this->account = $account;
+		$this->value = $value;
 	}
 
 	/**
@@ -41,15 +41,6 @@ class Credential {
 	}
 
 	/**
-	 * @param AccountInterface $account
-	 * @return $this
-	 */
-	public function setAccount(AccountInterface $account) {
-		$this->account = $account;
-		return $this;
-	}
-
-	/**
 	 * @return AccountInterface
 	 */
 	public function getAccount() {
@@ -57,11 +48,27 @@ class Credential {
 	}
 
 	/**
-	 * @param string $password
+	 * @param AccountInterface $account
 	 * @return $this
 	 */
-	public function setPassword($password) {
-		$this->password = $password;
+	public function setAccount(AccountInterface $account = NULL) {
+		$this->account = $account;
 		return $this;
+	}
+
+	/**
+	 * @param string $value
+	 * @return $this
+	 */
+	public function setValue($value = NULL) {
+		$this->value = $value;
+		return $this;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getValue() {
+		return $this->value;
 	}
 }
