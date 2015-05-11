@@ -1,0 +1,22 @@
+{
+	"name": "bleicker/account",
+	"type": "library",
+	"require": {
+	},
+	"require-dev": {
+		"bleicker/objectmanager": "1.1.*",
+		"bleicker/persistence": "1.0.*",
+		"phpunit/phpunit": "4.6.*"
+	},
+	"authors": [
+		{
+			"name": "Carsten Bleicker",
+			"email": "carsten@bleicker.de"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Bleicker\\Account\\": "src"
+		}
+	}
+}
