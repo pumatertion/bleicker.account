@@ -18,7 +18,25 @@ class CredentialTest extends UnitTestCase {
 	 */
 	public function createTest() {
 		$account = new Account('john');
-		$credential = new Credential($account, 'secret');
+		$credential = new Credential('secret', $account);
+		$this->assertEquals('john', $credential->getAccount()->getIdentity());
+	}
+
+	/**
+	 * @test
+	 */
+	public function constructTest() {
+		$credential = new Credential();
+		$this->assertNull($credential->getAccount());
+	}
+
+	/**
+	 * @test
+	 */
+	public function setAccountTest() {
+		$account = new Account('john');
+		$credential = new Credential();
+		$credential->setAccount($account);
 		$this->assertEquals('john', $credential->getAccount()->getIdentity());
 	}
 }
