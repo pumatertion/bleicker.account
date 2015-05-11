@@ -1,0 +1,12 @@
+Bleicker\Account\Account:
+  table: bleicker_account_account
+  type: entity
+  id:
+    id:
+      type: integer
+      generator:
+        strategy: AUTO
+  fields:
+    username:
+      type: string
+      unique: true
