@@ -64,11 +64,4 @@ class Credential {
 		$this->password = $password;
 		return $this;
 	}
-
-	/**
-	 * @return string
-	 */
-	public function getPassword() {
-		return $this->password;
-	}
 }
