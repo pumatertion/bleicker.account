@@ -10,6 +10,11 @@ namespace Bleicker\Account;
 class Role implements RoleInterface {
 
 	/**
+	 * @var integer
+	 */
+	protected $id;
+
+	/**
 	 * @var string
 	 */
 	protected $name;
@@ -19,6 +24,13 @@ class Role implements RoleInterface {
 	 */
 	public function __construct($name) {
 		$this->name = $name;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getId() {
+		return $this->id;
 	}
 
 	/**
