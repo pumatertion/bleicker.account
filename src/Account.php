@@ -2,6 +2,9 @@
 
 namespace Bleicker\Account;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * Class Account
  *
@@ -17,28 +20,61 @@ class Account implements AccountInterface {
 	/**
 	 * @var string
 	 */
-	protected $username;
+	protected $identity;
 
 	/**
-	 * @return int
+	 * @var Collection
+	 */
+	protected $roles;
+
+	/**
+	 * @param string $identity
+	 */
+	public function __construct($identity) {
+		$this->identity = $identity;
+		$this->roles = new ArrayCollection();
+	}
+
+	/**
+	 * @return integer
 	 */
 	public function getId() {
 		return $this->id;
 	}
 
 	/**
-	 * @param string $username
+	 * @return string
+	 */
+	public function getIdentity() {
+		return $this->identity;
+	}
+
+	/**
+	 * @return Collection
+	 */
+	public function getRoles() {
+		return $this->roles;
+	}
+
+	/**
+	 * @param RoleInterface $role
 	 * @return $this
 	 */
-	public function setUsername($username) {
-		$this->username = $username;
+	public function addRole(RoleInterface $role) {
+		if (!$this->getRoles()->contains($role)) {
+			$this->getRoles()->add($role);
+		}
 		return $this;
 	}
 
 	/**
-	 * @return string
+	 * @param RoleInterface $role
+	 * @return $this
 	 */
-	public function getUsername() {
-		return $this->username;
+	public function removeRole(RoleInterface $role) {
+		if ($this->getRoles()->contains($role)) {
+			$this->getRoles()->removeElement($role);
+		}
+		return $this;
 	}
 }
