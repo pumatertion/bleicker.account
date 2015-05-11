@@ -14,6 +14,11 @@ interface CredentialInterface {
 	public function getAccount();
 
 	/**
+	 * @return string
+	 */
+	public function getValue();
+
+	/**
 	 * @return int
 	 */
 	public function getId();

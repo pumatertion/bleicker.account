@@ -22,15 +22,15 @@ class Credential implements CredentialInterface {
 	/**
 	 * @var string
 	 */
-	protected $password;
+	protected $value;
 
 	/**
-	 * @param string $password
+	 * @param string $value
 	 * @param AccountInterface $account
 	 */
-	public function __construct($password = NULL, AccountInterface $account = NULL) {
+	public function __construct($value = NULL, AccountInterface $account = NULL) {
 		$this->account = $account;
-		$this->password = $password;
+		$this->value = $value;
 	}
 
 	/**
@@ -57,18 +57,18 @@ class Credential implements CredentialInterface {
 	}
 
 	/**
-	 * @param string $password
+	 * @param string $value
 	 * @return $this
 	 */
-	public function setPassword($password = NULL) {
-		$this->password = $password;
+	public function setValue($value = NULL) {
+		$this->value = $value;
 		return $this;
 	}
 
 	/**
 	 * @return string
 	 */
-	public function getPassword() {
-		return $this->password;
+	public function getValue() {
+		return $this->value;
 	}
 }

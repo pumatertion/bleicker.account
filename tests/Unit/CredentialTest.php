@@ -20,7 +20,7 @@ class CredentialTest extends UnitTestCase {
 		$account = new Account('john');
 		$credential = new Credential('secret', $account);
 		$this->assertEquals('john', $credential->getAccount()->getIdentity());
-		$this->assertEquals('secret', $credential->getPassword());
+		$this->assertEquals('secret', $credential->getValue());
 	}
 
 	/**
@@ -29,7 +29,7 @@ class CredentialTest extends UnitTestCase {
 	public function constructTest() {
 		$credential = new Credential();
 		$this->assertNull($credential->getAccount());
-		$this->assertNull($credential->getPassword());
+		$this->assertNull($credential->getValue());
 	}
 
 	/**
@@ -40,6 +40,6 @@ class CredentialTest extends UnitTestCase {
 		$credential = new Credential();
 		$credential->setAccount($account);
 		$this->assertEquals('john', $credential->getAccount()->getIdentity());
-		$this->assertNull($credential->getPassword());
+		$this->assertNull($credential->getValue());
 	}
 }
